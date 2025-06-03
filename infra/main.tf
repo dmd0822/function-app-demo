@@ -9,6 +9,7 @@ terraform {
       version = ">= 3.0.0"
     }
   } 
+  backend "local" {}
 }
 
 data "azurerm_resource_group" "main" {

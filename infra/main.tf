@@ -8,8 +8,7 @@ terraform {
       source  = "hashicorp/azurerm"
       version = ">= 3.0.0"
     }
-  }
-  backend "azurerm" {}
+  } 
 }
 
 data "azurerm_resource_group" "main" {

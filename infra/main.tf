@@ -9,7 +9,12 @@ terraform {
       version = ">= 3.0.0"
     }
   } 
-  backend "local" {}
+  backend "azurerm" {
+    storage_account_name = "temp"
+    container_name       = "temp"
+    key                 = "terraform.tfstate"
+  }
+
 }
 
 data "azurerm_resource_group" "main" {

@@ -46,3 +46,20 @@ module "function_app" {
   application_insights_instrumentation_key = module.application_insights.instrumentation_key
   key_vault_id         = module.key_vault.key_vault_id
 }
+
+module "network" {
+  source = "./modules/network"
+  location = data.azurerm_resource_group.main.location
+  resource_group_name = data.azurerm_resource_group.main.name
+  key_vault_id = module.key_vault.key_vault_id
+  function_app_id = module.function_app.function_app_id
+  storage_account_id = module.function_app.storage_account_id
+}
+
+module "app_gateway" {
+  source              = "./modules/app_gateway"
+  location            = var.location
+  resource_group_name = var.resource_group_name
+  subnet_id           = module.network.workload_subnet_id
+  backend_fqdn        = azurerm_private_endpoint.function_app.private_service_connection[0].private_ip_address
+}

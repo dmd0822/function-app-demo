@@ -10,3 +10,7 @@ output "function_app_name" {
 output "function_app_default_hostname" {
   value = azurerm_linux_function_app.fa.default_hostname
 }
+
+output "storage_account_id" {
+  value = azurerm_storage_account.sa.id
+}

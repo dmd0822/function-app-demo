@@ -32,6 +32,6 @@ variable "key_vault_name" {
 variable "subscription_id" {
   description = "The Azure Subscription ID to use for the provider."
   type        = string
-  // No default; must be set via environment variable or tfvars
+  default     = "${env("ARM_SUBSCRIPTION_ID")}"
 }
 

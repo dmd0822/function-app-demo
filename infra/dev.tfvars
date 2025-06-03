@@ -4,4 +4,3 @@ function_app_name     = "func-demo-dev"
 app_service_plan_name = "func-demo-plan-dev"
 application_insights_name = "func-demo-ai-dev"
 key_vault_name        = "func-demo-kv-dev"
-// subscription_id intentionally omitted; will be provided via environment variable ARM_SUBSCRIPTION_ID

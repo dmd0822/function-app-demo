@@ -29,7 +29,3 @@ variable "key_vault_name" {
   type        = string
 }
 
-variable "subscription_id" {
-  description = "The Azure Subscription ID to use for the provider."
-  type        = string
-}

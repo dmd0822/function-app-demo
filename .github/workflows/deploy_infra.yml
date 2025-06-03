@@ -41,7 +41,8 @@ jobs:
       - name: Initialize Terraform
         run: terraform init -backend-config='storage_account_name=safuncdemotfdmd' \
                             -backend-config='container_name=tfstatecontainer' \
-                            -backend-config='key=demotfstate'
+                            -backend-config='key=demotfstate' \
+                            -backend-config='resource_group_name= ${{ secrets.RESOURCE_GROUP }}'
 
       - name: Plan Terraform
         run: terraform plan

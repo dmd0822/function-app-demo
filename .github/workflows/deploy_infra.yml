@@ -41,6 +41,8 @@ jobs:
 
       - name: Plan Terraform
         run: terraform plan -var-file=dev.tfvars
+        env:
+            ARM_SUBSCRIPTION_ID: ${{ secrets.SubscriptionID }}
 
       - name: Apply Terraform
         run: terraform apply -auto-approve -var-file=dev.tfvars

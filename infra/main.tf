@@ -1,5 +1,6 @@
 provider "azurerm" {
   features {}
+  subscription_id = var.subscription_id
 }
 
 terraform {
@@ -9,6 +10,7 @@ terraform {
       version = ">= 3.0.0"
     }
   }
+  backend "azurerm" {}
 }
 
 data "azurerm_resource_group" "main" {

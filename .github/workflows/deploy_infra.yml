@@ -15,7 +15,7 @@ jobs:
   deploy-infra:
     runs-on: ubuntu-latest
     env:
-      STORAGE_ACCOUNT_NAME: "safuncdemotfdmd"
+      STORAGE_ACCOUNT_NAME: "safunctfstate"
       CONTAINER_NAME: "tfstatecontainer"
       STATE_FILE_KEY: "terraform.tfstate"     
     defaults:

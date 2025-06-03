@@ -34,14 +34,14 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       
-      - run: echo pwd
+      - run: pwd
 
       - run: ls -la
       
       - name: Initialize Terraform
-        run: terraform init -backend-config="storage_account_name=safuncdemotfdmd" \
-                            -backend-config="container_name=tfstatecontainer" \
-                            -backend-config="key=demotfstate"
+        run: terraform init -backend-config='storage_account_name=safuncdemotfdmd' \
+                            -backend-config='container_name=tfstatecontainer' \
+                            -backend-config='key=demotfstate'
 
       - name: Plan Terraform
         run: terraform plan

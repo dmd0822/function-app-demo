@@ -61,5 +61,5 @@ module "app_gateway" {
   location            = var.location
   resource_group_name = var.resource_group_name
   subnet_id           = module.network.workload_subnet_id
-  backend_fqdn        = azurerm_private_endpoint.function_app.private_service_connection[0].private_ip_address
+  backend_fqdn        = module.network.function_app_private_ip
 }

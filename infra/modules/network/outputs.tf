@@ -10,10 +10,6 @@ output "workload_subnet_id" {
   value = azurerm_subnet.workload.id
 }
 
-output "app_gateway_public_ip" {
-  value = azurerm_public_ip.appgw.ip_address
-}
-
-output "app_gateway_id" {
-  value = azurerm_application_gateway.appgw.id
+output "function_app_private_ip" {
+  value = azurerm_private_endpoint.function_app.private_service_connection[0].private_ip_address
 }

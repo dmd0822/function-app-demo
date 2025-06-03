@@ -17,8 +17,7 @@ jobs:
     env:
       STORAGE_ACCOUNT_NAME: "safuncdemotfdmd"
       CONTAINER_NAME: "tfstatecontainer"
-      STATE_FILE_KEY: "terraform.tfstate"
-      ARM_SUBSCRIPTION_ID: ${{ secrets.SubscriptionID }}
+      STATE_FILE_KEY: "terraform.tfstate"     
     defaults:
       run:
         working-directory: infra
@@ -50,8 +49,7 @@ jobs:
 
 
       - name: Plan Terraform
-        run: terraform plan -var-file=dev.tfvars
+        run: terraform plan -var-file=dev.tfvars -var="subscription_id=${{ secrets.AZURE_SUBSCRIPTION_ID }}"
         
       - name: Apply Terraform
-        run: terraform apply -auto-approve -var-file=dev.tfvars
-       
+        run: terraform apply -auto-approve -var-file=dev.tfvars -var="subscription_id=${{ secrets.AZURE_SUBSCRIPTION_ID }}"

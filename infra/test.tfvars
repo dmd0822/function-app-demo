@@ -1,0 +1,6 @@
+location              = "eastus"
+resource_group_name   = "rg-func-test"
+function_app_name     = "func-demo-test"
+app_service_plan_name = "func-demo-plan-test"
+application_insights_name = "func-demo-ai-test"
+key_vault_name        = "func-demo-kv-test"

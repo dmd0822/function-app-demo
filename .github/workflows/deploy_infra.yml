@@ -14,10 +14,18 @@ on:
 jobs:
   deploy-infra:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: infra
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+    
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.5.0
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -25,3 +33,16 @@ jobs:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      
+      - name: Initialize Terraform
+        run: terraform init -backend-config="storage_account_name=safuncdemotfdmd" \
+                            -backend-config="container_name=tfstatecontainer" \
+                            -backend-config="key=demotfstate"
+
+      - name: Plan Terraform
+        run: terraform plan
+
+      - name: Apply Terraform
+        run: terraform apply -auto-approve
+        env:
+            ARM_SUBSCRIPTION_ID: ${{ secrets.SubscriptionID }}

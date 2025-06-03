@@ -53,6 +53,13 @@ CodeCoverage/
 TestResult.xml
 nunit-*.xml
 
+#Terraform
+.terraform/
+.terraform.lock.hcl
+
+# Visual Studio Code
+.vscode/
+
 notes.txt
 credential.json
 publishProfile.json

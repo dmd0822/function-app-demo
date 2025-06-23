@@ -58,7 +58,6 @@ nunit-*.xml
 .terraform.lock.hcl
 
 # Visual Studio Code
-.vscode/
 
 notes.txt
 credential.json

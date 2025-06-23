@@ -16,6 +16,7 @@ permissions:
 env:
   AZURE_FUNCTIONAPP_PACKAGE_PATH: 'src/simple' # path to your Python function app
   PYTHON_VERSION: '3.11' # set this to the Python version to use
+  FUNCTIONS_WORKER_RUNTIME: 'python' # specify the language worker runtime
 
 jobs:
   build-and-deploy:

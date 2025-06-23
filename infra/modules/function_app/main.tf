@@ -15,5 +15,11 @@ resource "azurerm_linux_function_app" "fa" {
   storage_account_access_key = azurerm_storage_account.sa.primary_access_key
   site_config {
     application_insights_key = var.application_insights_instrumentation_key
+s    application_stack {
+      python_version = "3.11"
+    }
+  }
+  app_settings = {
+    FUNCTIONS_WORKER_RUNTIME = "python"
   }
 }

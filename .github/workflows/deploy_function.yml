@@ -41,7 +41,8 @@ jobs:
       - name: Archive Function App
         run: |
           cd ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-          zip -r ../functionapp.zip .
+          zip -r functionapp.zip .
+          mv functionapp.zip $GITHUB_WORKSPACE
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -56,4 +57,4 @@ jobs:
         with:
             app-name: 'fa-func-demo-dev'
             slot-name: 'Production'
-            package: '../functionapp.zip'
+            package: 'functionapp.zip'

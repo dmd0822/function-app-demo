@@ -10,7 +10,7 @@ namespace Monkey
 {    
     public static class MonkeyTools
     {
-        [Function("GetMonkeys")]
+        [Function("GetMonkeysMCP")]
         public static async Task<string> GetMonkeys([McpToolTrigger(GetMonkeysToolName, GetMonkeysToolDescription)] ToolInvocationContext context)
         {
             var monkeyService = new MonkeyService();
@@ -18,7 +18,7 @@ namespace Monkey
             return JsonSerializer.Serialize(monkeys);
         }
         
-        [Function("GetMonkey")]
+        [Function("GetMonkeyMCP")]
         public static async Task<string> GetMonkey([McpToolTrigger(GetMonkeyToolName, GetMonkeyToolDescription)] ToolInvocationContext context,  
              [McpToolProperty(MonkeyNamePropertyName, PropertyType, MonketNamePropertyDescription )] string name)
         {

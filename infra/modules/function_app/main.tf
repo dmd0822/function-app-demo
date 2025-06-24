@@ -13,10 +13,15 @@ resource "azurerm_linux_function_app" "fa" {
   service_plan_id            = var.app_service_plan_id
   storage_account_name       = azurerm_storage_account.sa.name
   storage_account_access_key = azurerm_storage_account.sa.primary_access_key
+
+  identity {
+    type = "SystemAssigned"
+  }
   site_config {
     application_insights_key = var.application_insights_instrumentation_key
     application_stack {
       dotnet_version = "8.0"
+      use_dotnet_isolated_runtime = true 
     }
     scm_ip_restriction {
       action   = "Allow"
@@ -26,6 +31,9 @@ resource "azurerm_linux_function_app" "fa" {
     }
   }
   app_settings = {
-    FUNCTIONS_WORKER_RUNTIME = "dotnet"
+    "AzureWebJobsStorage__accountName" = azurerm_storage_account.sa.name
+    "AzureWebJobsStorage__credential"  = "managedidentity"
+    "FUNCTIONS_EXTENSION_VERSION"      = "~4"
+    "FUNCTIONS_WORKER_RUNTIME"         = "dotnet-isolated"
   }
 }

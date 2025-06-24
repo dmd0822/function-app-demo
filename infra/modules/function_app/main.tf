@@ -18,6 +18,12 @@ resource "azurerm_linux_function_app" "fa" {
     application_stack {
       python_version = "3.11"
     }
+    scm_ip_restriction {
+      action   = "Allow"
+      priority = 100
+      name     = "AllowAll"
+      ip_address = "0.0.0.0/0"
+    }
   }
   app_settings = {
     FUNCTIONS_WORKER_RUNTIME = "python"

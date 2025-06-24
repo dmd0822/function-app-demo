@@ -29,6 +29,10 @@ resource "azurerm_linux_function_app" "fa" {
       name     = "AllowAll"
       ip_address = "0.0.0.0/0"
     }
+    cors {
+      allowed_origins = ["*"]
+      support_credentials = false
+    }
   }
   app_settings = {
     "AzureWebJobsStorage__accountName" = azurerm_storage_account.sa.name

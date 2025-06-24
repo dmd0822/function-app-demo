@@ -20,7 +20,7 @@ namespace Monkey
 
         [Function("GetMonkey")]
         public async Task<HttpResponseData> Run([
-            HttpTrigger(AuthorizationLevel.GetMonkey, "get", "post")]
+            HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")]
             HttpRequestData req,
             FunctionContext executionContext)
         {

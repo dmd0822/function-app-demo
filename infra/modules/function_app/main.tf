@@ -16,7 +16,7 @@ resource "azurerm_linux_function_app" "fa" {
   site_config {
     application_insights_key = var.application_insights_instrumentation_key
     application_stack {
-      python_version = "3.11"
+      dotnet_version = "8.0"
     }
     scm_ip_restriction {
       action   = "Allow"
@@ -26,6 +26,6 @@ resource "azurerm_linux_function_app" "fa" {
     }
   }
   app_settings = {
-    FUNCTIONS_WORKER_RUNTIME = "python"
+    FUNCTIONS_WORKER_RUNTIME = "dotnet"
   }
 }

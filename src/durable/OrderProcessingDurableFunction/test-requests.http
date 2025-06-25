@@ -1,0 +1,46 @@
+### Start Order Processing (Low Value - No Approval Needed)
+POST http://localhost:7071/api/orders/start
+Content-Type: application/json
+
+{
+    "customerEmail": "customer@example.com",
+    "amount": 500.00,
+    "productName": "Wireless Headphones",
+    "quantity": 1
+}
+
+### Start Order Processing (High Value - Requires Approval)
+POST http://localhost:7071/api/orders/start
+Content-Type: application/json
+
+{
+    "customerEmail": "bigcustomer@example.com",
+    "amount": 1500.00,
+    "productName": "Laptop Computer",
+    "quantity": 1
+}
+
+### Get Order Status (replace with actual instanceId)
+GET http://localhost:7071/api/orders/6afb1fe593ee4136b689d63ea840053b/status
+
+
+### Approve Order (replace with actual instanceId)
+POST http://localhost:7071/api/orders/approve
+Content-Type: application/json
+
+{
+    "instanceId": "6afb1fe593ee4136b689d63ea840053b",
+    "approved": true
+}
+
+### Reject Order (replace with actual instanceId)
+POST http://localhost:7071/api/orders/approve
+Content-Type: application/json
+
+{
+    "instanceId": "6afb1fe593ee4136b689d63ea840053b",
+    "approved": false
+}
+
+### Terminate Order (replace with actual instanceId)
+DELETE http://localhost:7071/api/orders/6afb1fe593ee4136b689d63ea840053b/terminate

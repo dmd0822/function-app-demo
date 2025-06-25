@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderProcessingDurableFunction", "OrderProcessingDurableFunction.csproj", "{6CE2251B-EA4F-3790-DBA6-613DD343417B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6CE2251B-EA4F-3790-DBA6-613DD343417B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CE2251B-EA4F-3790-DBA6-613DD343417B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CE2251B-EA4F-3790-DBA6-613DD343417B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CE2251B-EA4F-3790-DBA6-613DD343417B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9721AE1A-5FF7-43B1-BC71-37E8ABF82C7B}
+	EndGlobalSection
+EndGlobal

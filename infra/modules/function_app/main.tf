@@ -39,6 +39,6 @@ resource "azurerm_linux_function_app" "fa" {
     "AzureWebJobsStorage__credential"  = "managedidentity"
     "FUNCTIONS_EXTENSION_VERSION"      = "~4"
     "FUNCTIONS_WORKER_RUNTIME"         = "dotnet-isolated"
-    "STORAGE_ACCOUNT_NAME"             = "@Microsoft.KeyVault(SecretUri=${module.key_vault.key_vault_uri}secrets/storage-account-name)"
+    "STORAGE_ACCOUNT_NAME"             = "@Microsoft.KeyVault(SecretUri=${var.key_vault_uri}secrets/storage-account-name)"
   }
 }

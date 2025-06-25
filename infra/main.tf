@@ -53,6 +53,7 @@ module "function_app" {
   app_service_plan_id   = module.app_service_plan.app_service_plan_id
   application_insights_instrumentation_key = module.application_insights.instrumentation_key
   key_vault_id         = module.key_vault.key_vault_id
+  key_vault_uri        = module.key_vault.key_vault_uri
 }
 
 module "network" {

@@ -27,3 +27,8 @@ variable "key_vault_id" {
   description = "Key Vault resource ID"
   type        = string
 }
+
+variable "key_vault_uri" {
+  description = "The URI of the Key Vault for secret references."
+  type        = string
+}

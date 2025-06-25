@@ -41,6 +41,8 @@ module "key_vault" {
   resource_group_name = data.azurerm_resource_group.main.name
   location            = data.azurerm_resource_group.main.location
   key_vault_name      = var.key_vault_name
+  storage_account_name = module.function_app.storage_account_name
+  function_app_identity_object_id = module.function_app.function_app_identity_object_id
 }
 
 module "function_app" {
